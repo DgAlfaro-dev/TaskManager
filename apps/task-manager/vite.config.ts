@@ -1,0 +1,23 @@
+import react from '@vitejs/plugin-react';
+import { defineConfig } from 'vite';
+import svgr from 'vite-plugin-svgr';
+
+export default defineConfig({
+  plugins: [
+    react(),
+    svgr()
+  ],
+  resolve: {
+    alias: {
+      src: '/src',
+    },
+  },
+  optimizeDeps: {
+    include: ['@testing-library/react', 'react', 'react-dom'],
+  },
+  server: {
+    watch: {
+      usePolling: true,
+    },
+  },
+});
